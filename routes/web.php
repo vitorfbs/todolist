@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ERROR);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'ListController@index')->middleware('auth');
+Route::post('/create', 'ListController@create')->name('create');
+Route::get('/update/{id}', 'ListController@update')->name('update');
+Route::get('/delete/{id}', 'ListController@delete')->name('delete');
