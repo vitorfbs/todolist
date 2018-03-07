@@ -8,6 +8,10 @@ class Task extends Model
 {
    public $timestamps = false;
 
+   protected $fillable = [
+       'title','content',
+   ];
+
    //called upon click, it changes the status of the task to the opposite one,
    //meaning if it is uncomplete, it will be complete and vice versa
    public function  toggleStatus(){

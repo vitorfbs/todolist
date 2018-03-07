@@ -16,7 +16,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', 'ListController@index')->middleware('auth');
+Route::get('/', 'ListController@index');
 Route::post('/create', 'ListController@create')->name('create');
 Route::get('/update/{id}', 'ListController@update')->name('update');
 Route::get('/delete/{id}', 'ListController@delete')->name('delete');

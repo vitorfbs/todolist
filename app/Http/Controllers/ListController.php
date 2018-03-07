@@ -13,11 +13,10 @@ class ListController extends Controller
     }
 
     public function create(Request $request){
-      if($request->input('task')){
         $task = new Task;
-        $task->content = $request->input('task');
+        $task->title = $request->get('title');
+        $task->content = $request->get('content');
         $task->save();
-      }
       return redirect('/');
     }
 
